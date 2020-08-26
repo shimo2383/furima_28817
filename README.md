@@ -19,26 +19,21 @@
 
 ## items テーブル
 
-| Column                   | Type       | Options                        |
-| -------------            | ------     | -----------------------------  |
-| user                     | references | null: false, foreign_key: true |
-| category_id              | string     | null: false                    |
-| product_status_id        | string     | null: false                    |
-| shipping_charges_id      | string     | null: false                    |
-| shipping_region_id       | string     | null: false                    |
-| shipping_date_id         | string     | null: false                    |
-| item                     | string     | null: false                    |
-| image                    | string     | null: false                    |
-| price                    | integer    | null: false                    |
+| Column                   | Type        | Options                        |
+| -------------            | ------      | -----------------------------  |
+| user                     | references  | null: false, foreign_key: true |
+| category_id              | integer     | null: false                    |
+| product_status_id        | integer     | null: false                    |
+| shipping_charges_id      | integer     | null: false                    |
+| shipping_region_id       | integer     | null: false                    |
+| shipping_date_id         | integer     | null: false                    |
+| item                     | string      | null: false                    |
+| image                    | string      | null: false                    |
+| price                    | integer     | null: false                    |
 
 ### Association
 - belongs_to :user
 - has_one :purchase
-- belongs_to :category
-- belongs_to :product_status
-- belongs_to :shipping_charges
-- belongs_to :shipping_region
-- belongs_to :shipping_date 
 
 ## purchases テーブル
 
@@ -57,7 +52,7 @@
 | Column          | Type         | Options                        |
 | -------------   | ------       | -----------------------------  |
 | postcode_id     | string       | null: false                    |
-| prefectures_id  | string       | null: false                    |
+| prefectures_id  | integer      | null: false                    |
 | city            | string       | null: false                    |
 | address         | string       | null: false                    |
 | building_name   | string       |                                |
@@ -66,51 +61,4 @@
 
 ### Association
 - belongs_to :purchase
-- belongs_to :postcode
-- belongs_to :prefectures
-
-## category / ActiveHash テーブル
-
-| Column          | Type     | Options     |
-| -------------   | ------   | ----------- |
-| category        | string   | null: false |
-
-### Association
-- has_many :items
-
-## product_status / ActiveHash テーブル
-
-| Column          | Type     | Options     |
-| -------------   | ------   | ----------- |
-| product_status  | string   | null: false |
-
-### Association
-- has_many :items
-
-## shipping_charges / ActiveHash テーブル
-
-| Column            | Type     | Options     |
-| -------------     | ------   | ----------- |
-| shipping_charges  | string   | null: false |
-
-### Association
-- has_many :items
-
-## shipping_region / ActiveHash テーブル
-
-| Column            | Type     | Options     |
-| -------------     | ------   | ----------- |
-| shipping_region  | string   | null: false |
-
-### Association
-- has_many :items
-
-## shipping_date  / ActiveHash テーブル
-
-| Column            | Type     | Options     |
-| -------------     | ------   | ----------- |
-| shipping_date     | string   | null: false |
-
-### Association
-- has_many :items
 

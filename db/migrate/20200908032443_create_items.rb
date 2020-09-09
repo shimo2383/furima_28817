@@ -9,8 +9,9 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer      :shipping_date_id,      null: false
       t.string       :item,                  null: false
       t.integer      :price,                 null: false
-      
-      t.timestamps
+     #t.text         :description,           null: false
+
+     t.timestamps
     end
   end
 end

@@ -11,3 +11,5 @@ FactoryBot.define do
     birth_date { '1984-08-24' }
   end
 end
+
+#"a1#{....}"

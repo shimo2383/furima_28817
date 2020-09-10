@@ -2,7 +2,6 @@
 
 $(function(){
   $('#item-price').on( 'keyup', function(e){ 
-    console.log("test")
     // 販売価格の入力欄に入力すると動きます
     let amount = $( this ).val();
     // 販売価格の入力欄に入力された値を変数「amount」に代入
@@ -18,5 +17,3 @@ $(function(){
     // 同じように販売利益の欄も書き換えます。
   });
  });
-
- //console.log("test")

@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   before do
-    # user = @user
     user = FactoryBot.create(:user)
     @item = FactoryBot.build(:item, user_id: user.id)
     @item.image = fixture_file_upload('public/images/test_image.png')
@@ -10,7 +9,6 @@ RSpec.describe Item, type: :model do
 
   describe '#create' do
     it '全ての必須項目が入力されている場合出品できる' do
-      # expect(@user).to be_valid
       expect(@item).to be_valid
     end
 

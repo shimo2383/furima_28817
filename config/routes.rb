@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'items#index'
-  resources :items, only: [:index, :new, :show, :create, :edit, :destroy, :update]
+  resources :items
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

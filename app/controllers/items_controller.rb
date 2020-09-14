@@ -13,19 +13,19 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  #def edit
-    #@item = Item.find(params[:id])
-  #end
+  def edit
+    @item = Item.find(params[:id])
+  end
 
-  #def update
-    #item = Item.find(params[:id])
-    #items.update(item_params)
-  #end
+  def update
+    item = Item.find(params[:id])
 
-  #def destroy
-    #item = Item.find(params[:id])
-    #item.destroy
-  #end
+    if item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
+  end
 
   def create
     @item = Item.new(item_params)

@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :purchases
+- has_many :orders
 
 ## items テーブル
 
@@ -27,15 +27,16 @@
 | shipping_charges_id      | integer     | null: false                    |
 | shipping_region_id       | integer     | null: false                    |
 | shipping_date_id         | integer     | null: false                    |
-| item                     | string      | null: false                    |
-| image                    | string      | null: false                    |
+| name                     | string      | null: false                    |
 | price                    | integer     | null: false                    |
+| description              | text        | null: false                    |
 
 ### Association
 - belongs_to :user
-- has_one :purchase
+- has_one :order
+- has_one_attached :image
 
-## purchases テーブル
+## orders テーブル
 
 | Column            | Type       | Options                        |
 | -------------     | ------     | -----------------------------  |
@@ -49,16 +50,16 @@
 
 ## address テーブル
 
-| Column          | Type         | Options                        |
-| -------------   | ------       | -----------------------------  |
-| postcode_id     | string       | null: false                    |
-| prefectures_id  | integer      | null: false                    |
-| city            | string       | null: false                    |
-| address         | string       | null: false                    |
-| building_name   | string       |                                |
-| phone_number    | string       | null: false                    |
-| purchase        | references   | null: false, foreign_key: true |
+| Column             | Type         | Options                        |
+| -------------      | ------       | -----------------------------  |
+| postcode_id        | string       | null: false                    |
+| shipping_region_id | integer      | null: false                    |
+| city               | string       | null: false                    |
+| address            | string       | null: false                    |
+| building_name      | string       |                                |
+| phone_number       | string       | null: false                    |
+| order              | references   | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :purchase
+- belongs_to :order
 
